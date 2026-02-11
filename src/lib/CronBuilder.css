@@ -1,0 +1,75 @@
+.cron-builder {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 16px;
+  background: #fff;
+  max-width: 600px;
+}
+
+.cron-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.cron-label {
+  font-weight: 500;
+  min-width: 80px;
+  color: #4a5568;
+}
+
+.cron-select {
+  padding: 8px;
+  border: 1px solid #cbd5e0;
+  border-radius: 6px;
+  background-color: white;
+  cursor: pointer;
+}
+
+/* Make select/input text visible on dark pages */
+.cron-select {
+  color: #2d3748;
+}
+.cron-select option {
+  color: #2d3748;
+}
+.cron-select:focus {
+  outline: 2px solid #bee3f8;
+  outline-offset: 2px;
+}
+
+.cron-btn-group {
+  display: flex;
+  gap: 4px;
+}
+
+.cron-btn {
+  padding: 6px 12px;
+  border: 1px solid #cbd5e0;
+  background: #f7fafc;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+/* Ensure inactive buttons have readable text on any page background */
+.cron-btn {
+  color: #2d3748;
+}
+
+.cron-btn.active {
+  background: #3182ce;
+  color: white;
+  border-color: #3182ce;
+}
+
+.cron-preview {
+  margin-top: 16px;
+  padding: 12px;
+  background: #edf2f7;
+  border-radius: 6px;
+  font-size: 0.9em;
+  color: #2d3748;
+}
