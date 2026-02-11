@@ -19,55 +19,64 @@ If you are developing a production application, we recommend updating the config
 export default defineConfig([
   globalIgnores(['dist']),
   {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+    # React Easy Cron Builder
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+    A lightweight, zero-dependency visual cron builder for React (TypeScript + Vite).
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+    ## Features
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+    - Small, focused UI component to build simple cron expressions (daily/weekly/monthly).
+    - Ships JS bundles and declaration files (`dist/index.d.ts`) for TypeScript consumers.
+    - Exports `style.css` so consumers can import the component's styles.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+    ## Quick Start
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+    Install:
+
+    ```bash
+    npm install @blue9kamrul/react-cron-scheduler
+    ```
+
+    Usage:
+
+    ```tsx
+    import React from 'react'
+    import { CronBuilder } from '@blue9kamrul/react-cron-scheduler'
+    import '@blue9kamrul/react-cron-scheduler/style.css'
+
+    export default function App(){
+      return <CronBuilder />
+    }
+    ```
+
+    ## Screenshot
+
+    Add the screenshot file to the repo (for example `docs/screenshot.png`) and include it like this in the README:
+
+    ```md
+    ![Demo screenshot](docs/screenshot.png)
+    ```
+
+    ## Notes for publishing
+
+    - `prepare` script runs the build before `npm publish` (added to `package.json`).
+    - License: MIT (included in repository).
+
+    ## Recommendations and checklist before publishing
+
+    - Ensure `version` in `package.json` is appropriately set (bump for new releases).
+    - Add a short `CHANGELOG.md` with release notes.
+    - Add a small example app or Codesandbox link in the README so users can try it quickly.
+    - Consider adding tests, accessibility checks, and a `CONTRIBUTING.md` if this will be community-maintained.
+
+    ## Development
+
+    ```bash
+    npm install
+    npm run dev
+    ```
+
+    ## Advanced
+
+    - `prepare` builds before publishing so consumers receive compiled artifacts and `.d.ts` files.
+    - The package is scoped; `publishConfig.access` is set to `public` so it can be published publicly.
